@@ -3,46 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的技术博客</title>
+    <title>我的技术博客 | 分享前端开发、后端架构、编程心得</title>
+    <meta name="description" content="个人技术博客，分享前端开发、后端架构、编程心得，包括 JavaScript、CSS、HTML、React、Vue、Node.js 等技术文章。">
+    <meta name="keywords" content="JavaScript, CSS, HTML, 前端开发, 后端开发, React, Vue, Node.js, 技术博客">
+    <meta name="author" content="TechBlog">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Huanglh337/hlhdemo">
+    <meta property="og:title" content="我的技术博客">
+    <meta property="og:description" content="分享前端开发、后端架构、编程心得">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=TechBlog">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="我的技术博客">
+    <meta property="twitter:description" content="分享前端开发、后端架构、编程心得">
+    <meta property="twitter:image" content="https://via.placeholder.com/1200x630?text=TechBlog">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://github.com/Huanglh337/hlhdemo">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="主导航">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">TechBlog</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">首页</a></li>
-                <li><a href="about.html" class="nav-link">关于</a></li>
+            <a href="index.html" class="nav-logo" aria-label="TechBlog 首页">TechBlog</a>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" class="nav-link active" role="menuitem" aria-current="page">首页</a></li>
+                <li role="none"><a href="about.html" class="nav-link" role="menuitem">关于</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container" role="main">
         <header class="hero">
             <h1>欢迎来到我的技术博客</h1>
             <p>分享前端开发、后端架构、编程心得</p>
         </header>
 
-        <section class="posts-section">
-            <h2 class="section-title">最新文章</h2>
-            <div id="posts-container" class="posts-grid">
+        <section class="posts-section" aria-labelledby="posts-title">
+            <h2 class="section-title" id="posts-title">最新文章</h2>
+            <div id="posts-container" class="posts-grid" role="feed" aria-label="文章列表">
                 <!-- 文章列表将通过 JS 动态生成 -->
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <p>&copy; 2026 TechBlog. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="js/posts.js"></script>
+    <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

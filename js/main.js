@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初始化文章列表
     initPostsList();
 
-    // 初始化移动端菜单
+    // 初始化移动端菜单（使用公共函数）
     initMobileMenu();
 });
 
@@ -14,42 +14,42 @@ function initPostsList() {
     const postsContainer = document.getElementById('posts-container');
     if (!postsContainer) return;
 
-    // 生成文章卡片
-    const postsHTML = postsData.map(post => createPostCard(post)).join('');
-    postsContainer.innerHTML = postsHTML;
+    try {
+        // 生成文章卡片
+        const postsHTML = postsData.map(post => createPostCard(post)).join('');
+        postsContainer.innerHTML = postsHTML;
 
-    // 为每个卡片添加点击事件
-    document.querySelectorAll('.post-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const postId = card.dataset.id;
-            window.location.href = `post.html?id=${postId}`;
+        // 使用事件委托处理点击事件，提升性能
+        postsContainer.addEventListener('click', (e) => {
+            const card = e.target.closest('.post-card');
+            if (card) {
+                const postId = card.dataset.id;
+                window.location.href = `post.html?id=${postId}`;
+            }
         });
-    });
+    } catch (error) {
+        console.error('初始化文章列表失败:', error);
+        showError('加载文章列表失败，请稍后重试');
+    }
 }
 
 // 创建文章卡片 HTML
 function createPostCard(post) {
     return `
         <article class="post-card" data-id="${post.id}">
-            <h3>${post.title}</h3>
-            <p>${post.summary}</p>
+            <h3>${escapeHTML(post.title)}</h3>
+            <p>${escapeHTML(post.summary)}</p>
             <div class="post-meta">
-                <span>${post.category}</span>
-                <span>${post.date}</span>
+                <span>${escapeHTML(post.category)}</span>
+                <span>${escapeHTML(post.date)}</span>
             </div>
         </article>
     `;
 }
 
-// 初始化移动端菜单
-function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
+// 转义 HTML 特殊字符，防止 XSS
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
 }

@@ -1,0 +1,29 @@
+{
+  "name": "hlhdemo",
+  "version": "1.0.0",
+  "description": "个人技术博客项目",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "blog",
+    "tech",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "TechBlog",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  }
+}
