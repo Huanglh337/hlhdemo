@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的技术博客</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">TechBlog</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">首页</a></li>
+                <li><a href="about.html" class="nav-link">关于</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero">
+            <h1>欢迎来到我的技术博客</h1>
+            <p>分享前端开发、后端架构、编程心得</p>
+        </header>
+
+        <section class="posts-section">
+            <h2 class="section-title">最新文章</h2>
+            <div id="posts-container" class="posts-grid">
+                <!-- 文章列表将通过 JS 动态生成 -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 TechBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/posts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
